@@ -103,7 +103,6 @@ for i in ${!_wd[@]}; do
 	k="${_wd[$i]}"
 	_arr_ltrs[$k]+="${_arr_ltrs[$k]:+,}$i"
 done
-
 }
 
 #return correct state ascii man
@@ -239,7 +238,9 @@ else
 	wrng_cnt=$(( $wrng_cnt+1 ))
 fi
 
-_gsd_ltrs+=$ltr
+#if theres already data, append a comma. This'll show up as a space
+#when we display the whole array because of the IFS setting
+_gsd_ltrs+="${_gsd_ltrs[0]:+,}$ltr"
 
 if [[ $mask != *"_"* ]]; then
 	echo -e "\t\"$mask\" is the correct word!"
@@ -248,7 +249,7 @@ if [[ $mask != *"_"* ]]; then
 
 	case $rsp in
 		[yY]) start_game ;;
-		*) exit ;;
+	*) exit ;;
 	esac
 
 fi
@@ -256,8 +257,7 @@ fi
 echo $mask
 echo $( print_man $wrng_cnt )
 echo -e "\t Guessed letters: "
-#split guessed letters for display clarity
-echo -e "\t $( echo ${gsd_ltrs[@]} | grep -o . | tr "\n" " " )"
+echo -e "\t ${gsd_ltrs[@]}"
 #Create a divider before next guess
 echo "***********************************************"
 
