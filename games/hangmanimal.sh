@@ -256,8 +256,8 @@ fi
 echo $mask
 echo $( print_man $wrng_cnt )
 echo -e "\t Guessed letters: "
-#split letters into comma-delimited string for display
-echo -e "\t $( echo ${gsd_ltrs[@]} | grep -o . | tr "\n" ", " )"
+#split guessed letters for display clarity
+echo -e "\t $( echo ${gsd_ltrs[@]} | grep -o . | tr "\n" " " )"
 #Create a divider before next guess
 echo "***********************************************"
 
