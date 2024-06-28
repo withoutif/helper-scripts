@@ -50,7 +50,7 @@ setup_game
 
 }
 
-#create display mask, show hangman, call guess func
+#create display mask, call guess func
 setup_game () {
 
 mask=$(echo $wd | sed -e 's/[a-zA-Z]/_/g') 
