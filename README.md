@@ -11,4 +11,4 @@ Assorted bash and git helpers and aliases
 
 1. Hangmanimal. The hangman game where you guess the name of an animal!
 
-...I'll add more soon
+### Chess in one is just pure magic
