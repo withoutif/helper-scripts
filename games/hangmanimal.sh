@@ -124,7 +124,7 @@ case $state in
 			|
 			|" ;;
 2) echo -e "\n\t_________________
-		 |	|
+	 |	|
 		 ^	|
 		 O	|
 			|
@@ -224,10 +224,13 @@ if [ $ln -ne 1 ]; then
 	return
 fi
 
+echo "Letters"
+echo ${arr_ltrs[$ltr]}
+echo "letters!"
 if [[ ${gsd_ltrs[*]} =~ $ltr ]]; then
 	echo -e "\t You've already guessed $ltr. Focus. A man's life hangs in the balance."
 	make_guess
-elif [[ ${!arr_ltrs[*]} =~ $ltr ]]; then
+elif [[ ! -z "${arr_ltrs[$ltr]}" ]]; then
 	i_set="${arr_ltrs[$ltr]}"
 	for i in $i_set; do
 		#add letter to mask at index (sed uses 1 based index)
